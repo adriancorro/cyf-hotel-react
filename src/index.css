@@ -4,6 +4,19 @@ body {
   font-family: sans-serif;
 }
 
+.imgHeader {
+  width: 5.7rem;
+  margin-left: 0.5rem;
+}
+
+.cardParent {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  display: inline-flex;
+}
 .search-wrapper {
   border-top: 1px solid #e9ecef;
 }
