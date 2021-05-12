@@ -17,9 +17,15 @@ footer {
   display: flex;
   justify-content: space-around;
 }
-
+.card .btn-primary {
+  bottom: 1rem;
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+}
 .card {
   display: inline-flex;
+  height: 270px;
 }
 .search-wrapper {
   border-top: 1px solid #e9ecef;

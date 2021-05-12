@@ -34,8 +34,6 @@ const SearchButton = () => {
   return <button className="btn btn-primary">Search</button>;
 };
 const SearchResults = () => {
-  let dateCheckInDate;
-  let dateCheckOutDate;
   //let reservationDate = [["reservation premium" , "adrian", "corro", "adriancorrog@gmail.com","303","12/02/2022","13/02/2022"]]
   return (
     <table className="table">
