@@ -9,6 +9,10 @@ body {
   margin-left: 0.5rem;
 }
 
+footer {
+  background-color: #fffacda8;
+}
+
 .cardParent {
   display: flex;
   justify-content: space-around;

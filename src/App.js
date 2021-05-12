@@ -9,6 +9,7 @@ const App = () => {
       <Heading />
       <TouristInfoCardsque />
       <Bookings />
+      <Footer />
     </div>
   );
 };
@@ -19,7 +20,7 @@ const Heading = props => {
       CYF Hotel{" "}
       <img
         alt="pokemonImage"
-        class="imgHeader"
+        className="imgHeader"
         src="https://www.universalhotels.es/dms/multiHotel-UniversalHotels/logoUniversal.png"
       />
     </header>
@@ -75,6 +76,23 @@ const TouristInfoCardsque = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+const Footer = () => {
+  let list = [
+    "123 Fake Street, London, E1 4UD",
+    "hello@fakehotel.com",
+    "0123 456789"
+  ];
+  return (
+    <footer>
+      <ul>
+        {list.map((value, index) => {
+          return <li key={index}> {value} </li>;
+        })}
+      </ul>
+    </footer>
   );
 };
 
