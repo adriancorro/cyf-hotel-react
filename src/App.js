@@ -1,6 +1,6 @@
-import React from "react";
-
+import React, { useState } from "react";
 import Bookings from "./Bookings";
+import Restaurant from "./Restaurant";
 import "./App.css";
 
 const App = () => {
@@ -9,6 +9,7 @@ const App = () => {
       <Heading />
       <TouristInfoCardsque />
       <Bookings />
+      <Restaurant />
       <Footer />
     </div>
   );
