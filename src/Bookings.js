@@ -22,6 +22,7 @@ const Bookings = () => {
 };
 
 const SearchResults = (props, condition) => {
+  const [selector, setSelector] = useState(false);
   //let reservationDate = [["reservation premium" , "adrian", "corro", "adriancorrog@gmail.com","303","12/02/2022","13/02/2022"]]
   return (
     <table className="table">
@@ -54,7 +55,6 @@ const SearchResults = (props, condition) => {
         {/* Forma 1 */}
 
         {props.results.map((e, index) => {
-          const [selector, setSelector] = useState(false);
           const selectionRow = () => {
             setSelector("green");
           };
