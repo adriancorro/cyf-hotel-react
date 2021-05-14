@@ -47,3 +47,11 @@ footer {
 .search-row input {
   margin-right: 10px;
 }
+
+.green {
+  background-color: green;
+}
+
+.white {
+  background-color: white;
+}

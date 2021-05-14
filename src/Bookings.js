@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Search from "./Search.js";
 import FakeBookings from "./data/fakeBookings.json";
 import moment from "moment";
@@ -21,7 +21,7 @@ const Bookings = () => {
   );
 };
 
-const SearchResults = props => {
+const SearchResults = (props, condition) => {
   //let reservationDate = [["reservation premium" , "adrian", "corro", "adriancorrog@gmail.com","303","12/02/2022","13/02/2022"]]
   return (
     <table className="table">
@@ -52,14 +52,21 @@ const SearchResults = props => {
       </thead>
       <tbody>
         {/* Forma 1 */}
-        {props.results.map((e, index) => (
-          <tr key={index}>
-            {Object.values(e).map((e, index) => {
-              return <td key={index}>{e}</td>;
-            })}
-            <td>{moment(e.checkOutDate).diff(e.checkInDate, "days")}</td>
-          </tr>
-        ))}
+
+        {props.results.map((e, index) => {
+          const [selector, setSelector] = useState(false);
+          const selectionRow = () => {
+            setSelector("green");
+          };
+          return (
+            <tr className={selector} onClick={selectionRow} key={index}>
+              {Object.values(e).map((e, index) => {
+                return <td key={index}>{e}</td>;
+              })}
+              <td>{moment(e.checkOutDate).diff(e.checkInDate, "days")}</td>
+            </tr>
+          );
+        })}
 
         {/* Forma 2 */}
         {/*         {fakeBookings.map((value, index) => {return (
@@ -78,6 +85,33 @@ const SearchResults = props => {
         {/*      Solucion a error:   https://stackoverflow.com/questions/45467940/calculate-and-display-difference-between-two-dates-using-moment-js-in-react-js    */}
       </tbody>
     </table>
+  );
+};
+
+const Example = props => {
+  const [color, setColor] = useState("red");
+
+  const highlightPurple2 = () => {
+    if (color == "white") {
+      setColor("green");
+    } else {
+      setColor("white");
+    }
+  };
+
+  return (
+    <>
+      className={color} onClick={highlightPurple2}
+    </>
+  );
+};
+
+const ChildComponent = ({ condition, handleClick }) => {
+  var className = condition ? "green" : "white";
+  return (
+    <div className={className} onClick={() => handleClick()}>
+      <div>List</div>
+    </div>
   );
 };
 
