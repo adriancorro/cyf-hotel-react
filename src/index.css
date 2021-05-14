@@ -49,9 +49,13 @@ footer {
 }
 
 .green {
-  background-color: green;
+  background-color: #acdaacbd;
 }
 
 .white {
   background-color: white;
+}
+
+.red {
+  background-color: red;
 }
