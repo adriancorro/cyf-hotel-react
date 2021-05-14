@@ -21,9 +21,9 @@ const Bookings = () => {
   );
 };
 
-const SearchResults = (props, condition) => {
+const SearchResults = props => {
   const [selector, setSelector] = useState(false);
-  //let reservationDate = [["reservation premium" , "adrian", "corro", "adriancorrog@gmail.com","303","12/02/2022","13/02/2022"]]
+
   return (
     <table className="table">
       <thead>
@@ -67,6 +67,20 @@ const SearchResults = (props, condition) => {
             </tr>
           );
         })}
+
+        {/*    {props.results.map((e, index) => {
+          const selectionRow = () => {
+            setSelector("green");
+          };
+          return (
+            <tr className={selector} onClick={selectionRow} key={index}>
+              {Object.values(e).map((e, index) => {
+                return <td key={index}>{e}</td>;
+              })}
+              <td>{moment(e.checkOutDate).diff(e.checkInDate, "days")}</td>
+            </tr>
+          );
+        })} */}
 
         {/* Forma 2 */}
         {/*         {fakeBookings.map((value, index) => {return (
