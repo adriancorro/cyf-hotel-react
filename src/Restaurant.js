@@ -15,7 +15,10 @@ const Restaurant = () => {
 
 const RestaurantButton = props => {
   return (
-    <button className="btn btn-primary" onClick={props.handleClick}>
+    <button
+      className="btn btn-primary btn-restaurant"
+      onClick={props.handleClick}
+    >
       Add
     </button>
   );
@@ -29,7 +32,7 @@ const Order = props => {
   };
 
   return (
-    <li>
+    <li className="list-restaurente">
       {" "}
       {props.orderType} {orders} <RestaurantButton handleClick={orderOne} />{" "}
     </li>

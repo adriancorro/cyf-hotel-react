@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import SearchResults from "./SearchResults.js";
 import Search from "./Search.js";
-import FakeBookings from "./data/fakeBookings.json";
+import SearchResultsFetcher from "./SearchResultsFetcher.js";
 
 const Bookings = () => {
-  const [bookings, setBookings] = useState(FakeBookings);
-
-  const search = searchVal => {
-    searchVal.preventDefault();
-    setBookings(FakeBookings);
+  const search2 = searchVal => {
     console.info("TO DO!", searchVal);
   };
+
   return (
     <div className="App-content">
       <div className="container">
-        <Search search={search} />
-        <SearchResults results={bookings} />
+        <Search searchKey={search2} />
+        <SearchResults results={SearchResultsFetcher()} />
+        <SearchResults
+          results={SearchResultsFetcher().filter(e => e.title === "Doctor")}
+        />
       </div>
     </div>
   );

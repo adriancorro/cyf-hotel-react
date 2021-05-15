@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Search = () => {
+const Search = props => {
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearchInput = e => {
+    setSearchInput(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(event.target.vale);
+    console.log("Sending data to server");
+    props.searchKey(searchInput);
+  };
+
   return (
     <div className="search">
       <div className="page-header">
@@ -8,7 +22,7 @@ const Search = () => {
       </div>
       <div className="row search-wrapper">
         <div className="col">
-          <form className="form-group search-box">
+          <form onSubmit={handleSubmit} className="form-group search-box">
             <label htmlFor="customerName">Customer name</label>
             <div className="search-row">
               <input
@@ -16,6 +30,11 @@ const Search = () => {
                 id="customerName"
                 className="form-control"
                 placeholder="Customer name"
+                value={searchInput}
+                onChange={handleSearchInput}
+                /*   Tambien podemos usar: 
+                onChange={e => setSearchInput(e.target.value)
+                  y no necesitamos handleSearchInput */
               />
               <SearchButton />
             </div>
@@ -26,17 +45,8 @@ const Search = () => {
   );
 };
 
-function search(e) {
-  e.preventDefault();
-  console.log("prueba");
-}
-
 const SearchButton = () => {
-  return (
-    <button onClick={search} className="btn btn-primary">
-      Search
-    </button>
-  );
+  return <button className="btn btn-primary">Search</button>;
 };
 
 export default Search;

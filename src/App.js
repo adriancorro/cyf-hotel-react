@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Bookings from "./Bookings";
 import Restaurant from "./Restaurant";
 import "./App.css";
@@ -20,7 +20,7 @@ const Heading = props => {
     <header className="App-header">
       CYF Hotel{" "}
       <img
-        alt="pokemonImage"
+        alt="universalhotels"
         className="imgHeader"
         src="https://www.universalhotels.es/dms/multiHotel-UniversalHotels/logoUniversal.png"
       />
@@ -33,6 +33,7 @@ const TouristInfoCardsque = () => {
     <div className="cardParent">
       <div className="card">
         <img
+          alt="glasgow"
           src="https://peoplemakeglasgow.com/images/Top_Reasons_To_Visit/Riverside_Museum.jpg"
           className="card-img-top"
         />
@@ -41,6 +42,7 @@ const TouristInfoCardsque = () => {
             href="https://peoplemakeglasgow.com/"
             target="_blank"
             className="btn btn-primary"
+            rel="noopener noreferrer"
           >
             More information
           </a>
@@ -48,6 +50,7 @@ const TouristInfoCardsque = () => {
       </div>
       <div className="card">
         <img
+          alt="manchester2016"
           src="https://eu-assets.simpleview-europe.com/manchester2016/imageresizer/?image=%2Fdbimgs%2F21%20Things%20VM.jpg&action=BlogDetailContent"
           className="card-img-top"
         />
@@ -56,6 +59,7 @@ const TouristInfoCardsque = () => {
             href="https://www.visitmanchester.com/"
             target="_blank"
             className="btn btn-primary"
+            rel="noopener noreferrer"
           >
             More information
           </a>
@@ -63,6 +67,7 @@ const TouristInfoCardsque = () => {
       </div>
       <div className="card">
         <img
+          alt="london"
           src="https://cdn.londonandpartners.com/-/media/images/london/visit/things-to-do/london-areas/brixton/david_bowie_mural.jpg?h=360&la=en&w=640&hash=01935987BEC8D3686C1B7AB917CB17A29A82078E"
           className="card-img-top"
         />
@@ -70,6 +75,7 @@ const TouristInfoCardsque = () => {
           <a
             href="https://visitlondon.com/"
             target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-primary"
           >
             More information
