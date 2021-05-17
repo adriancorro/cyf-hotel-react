@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-function SearchResultsFetcher(props) {
+// Este componente no se esta utilizando, solo es como prueba
+
+function SearchResultsFetcher() {
   const [BookingsFetcher, setBookingsFetcher] = useState([]);
 
   useEffect(() => {

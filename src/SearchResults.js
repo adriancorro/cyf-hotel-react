@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import moment from "moment";
 
 const SearchResults = props => {
   return (
@@ -9,6 +8,7 @@ const SearchResults = props => {
           <thead>
             <tr>
               {/* forma 1  */}
+              {console.log(" props.results" + props.results)}
               {props.results
                 .map(e => Object.keys(e))[0]
                 .map((e, index) => {
@@ -18,7 +18,6 @@ const SearchResults = props => {
                     </th>
                   );
                 })}
-              <th scope="col">#Night</th>
               {/* forma 2  */}
               {/*   <th scope="col">#id</th>
                 <th scope="col">title</th>
@@ -64,13 +63,14 @@ const Child = ({ result2 }) => {
       setSelector("white");
     }
   };
-  console.log("result2.id " + result2.id);
+  console.log(result2);
   return (
     <tr className={selector} onClick={selectionRow}>
-      {Object.values(result2).map((data, index) => (
-        <td key={index}>{data}</td>
-      ))}
-      <td>{moment(result2.checkOutDate).diff(result2.checkInDate, "days")}</td>
+      {result2 != 0 ? (
+        Object.values(result2).map((data, index) => <td key={index}>{data}</td>)
+      ) : (
+        <span>Loading...888888888888888888</span>
+      )}
     </tr>
   );
   {
