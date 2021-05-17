@@ -24,7 +24,6 @@ useEffect resuelve el problema useEffect "llama a esto solo cuando esto cambie."
         <table className="table">
           <thead>
             <tr className={selectorClass}>
-              {/* forma 1  */}
               {console.log(" props.results" + props.results)}
               {props.results
                 .map(e => Object.keys(e))[0]
@@ -35,16 +34,6 @@ useEffect resuelve el problema useEffect "llama a esto solo cuando esto cambie."
                     </th>
                   );
                 })}
-              {/* forma 2  */}
-              {/*   <th scope="col">#id</th>
-                <th scope="col">title</th>
-                <th scope="col">first name</th>
-                <th scope="col">surname</th>
-                <th scope="col">email</th>
-                <th scope="col">room id</th>
-                <th scope="col">check in date</th> 
-                <th scope="col">check out date</th>
-                <th scope="col">#Night</th> */}
             </tr>
           </thead>
           <tbody>
@@ -59,17 +48,6 @@ useEffect resuelve el problema useEffect "llama a esto solo cuando esto cambie."
     </div>
   );
 };
-/* 
-          De igual forma serviria: 
-          <Child result2={result} key={index} />
-          const Child = (props)  =>
-          para  hacer: 
-          console.log(props.result2)
-          Object.values(props.result2).map */
-
-/* Nota: en const Child = ({result2})  => deberia ser:
-          const Child = ({result})  => pero para entender mas detallado
-          se coloca asi */
 
 const Child = ({ result2 }) => {
   const [selector, setSelector] = useState("white");

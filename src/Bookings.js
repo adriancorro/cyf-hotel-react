@@ -11,7 +11,9 @@ import fakeBookings from "./data/fakeBookings.json";
  */ const Bookings = () => {
   const [searchInput, setSearchInput] = useState(false);
   const [BookingsFetcher, setBookingsFetcher] = useState([]);
+  const [BookingsFetcher2, setBookingsFetcher2] = useState([]);
   const [Link, setLink] = useState([]);
+  const [selectorProfile, setSelectorProfile] = useState(false);
   const Search2 = searchVal => {
     console.info("TO DO!", searchVal);
     console.log(
@@ -29,10 +31,9 @@ import fakeBookings from "./data/fakeBookings.json";
     return `https://cyf-react.glitch.me/customers/${id}`;
   };
   // Si no se usa useEffect en el filter no aparecera los #night
-
   useEffect(() => {
     console.log("Fetching https://cyf-react.glitch.me");
-    fetch(urlFuntion1())
+    fetch(!selectorProfile ? urlFuntion1() : urlFuntion(selectorProfile))
       .then(res => {
         if (!res) {
           throw new Error(`HTTP error ! status : ${res.ok}`);
@@ -43,35 +44,20 @@ import fakeBookings from "./data/fakeBookings.json";
       .then(data => {
         console.log(data);
         console.log(data.length);
-
-        setBookingsFetcher(data);
+        !selectorProfile ? setBookingsFetcher(data) : setBookingsFetcher2(data);
       })
       .catch(e => console.log(e));
-  }, []);
-
-  const [selectorProfile, setSelectorProfile] = useState(false);
+  }, [selectorProfile]);
 
   const CustomerProfile = props => {
     const ShowProfile = () => {
-      console.log("fetch 2");
+      console.log(props.id);
       setSelectorProfile(props.id);
-      fetch(urlFuntion(props.id))
-        .then(res => {
-          if (!res) {
-            throw new Error(`HTTP error ! status : ${res.ok}`);
-          } else {
-            return res.json();
-          }
-        })
-        .then(data => {
-          console.log(data);
-          console.log(data);
-          setLink(data);
-        });
     };
+
     return (
       <button className="btn btn-outline-info" onClick={ShowProfile}>
-        click here{" "}
+        Show profile
       </button>
     );
   };
@@ -88,6 +74,7 @@ import fakeBookings from "./data/fakeBookings.json";
                   (a.night = moment(a.checkOutDate).diff(a.checkInDate, "days"))
               )}
               {BookingsFetcher.forEach(
+                /*   enviame como parametro al props id lo que tenga a.id del forEach */
                 a => (a.info = <CustomerProfile id={a.id} />)
               )}
               <SearchResults results={BookingsFetcher} />
@@ -106,32 +93,32 @@ import fakeBookings from "./data/fakeBookings.json";
           <SearchResults results={[BookingsFetcher]} />
         )}
 
-        {[Link].forEach(a => {
-          if (a.id === 1) {
+        {[BookingsFetcher2].forEach(a => {
+          a.vip = "false";
+        })}
+
+        {[BookingsFetcher2].forEach(a => {
+          if (a.id === 2) {
             a.vip = "true";
           }
         })}
-        {[Link].forEach(a => {
-          if (a.id === 2) {
-            a.vip = "false";
-          }
-        })}
-        {[Link].forEach(a => {
+        {[BookingsFetcher2].forEach(a => {
           if (a.id === 3) {
             a.vip = "false";
           }
         })}
-        {[Link].forEach(a => {
+        {[BookingsFetcher2].forEach(a => {
           if (a.id === 4) {
             a.vip = "false";
           }
         })}
-        {[Link].forEach(a => {
+        {[BookingsFetcher2].forEach(a => {
           if (a.id === 5) {
-            a.vip = "false";
+            a.vip = "true";
           }
         })}
-        {selectorProfile && <SearchResults results={[Link]} />}
+
+        {selectorProfile && <SearchResults results={[BookingsFetcher2]} />}
       </div>
     </div>
   );
