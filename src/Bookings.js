@@ -113,7 +113,7 @@ import fakeBookings from "./data/fakeBookings.json";
             a.vip = "false";
           }
         })}
-        {selectorProfile && <SearchResults results={[Link]} />}
+        {selectorProfile && <SearchResults results={[Link]} className="red" />}
       </div>
     </div>
   );

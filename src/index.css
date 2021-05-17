@@ -47,6 +47,10 @@ footer {
 .search-row input {
   margin-right: 10px;
 }
+.orange {
+  color: #332f33;
+  background-color: #ffce2f6b;
+}
 
 .green {
   background-color: #acdaacbd;

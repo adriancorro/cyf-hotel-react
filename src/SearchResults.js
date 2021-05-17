@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const SearchResults = props => {
+  const [selectorClass, setSelectorClass] = useState("white");
+
+  /* Al renderizar props.results.map(e => Object.keys(e))[0] da undefined por lo que solo queremos
+que entre a la condicion si es true de lo contrario (no se puede hacer map de undefined).
+
+sin el useEffect no se puede hacer setSelectorClass porque es un loop con muchas iteracciones
+useEffect resuelve el problema useEffect "llama a esto solo cuando esto cambie."
+*/
+  useEffect(() => {
+    if (props.results.map(e => Object.keys(e))[0]) {
+      if (props.results.map(e => Object.keys(e))[0].includes("vip")) {
+        setSelectorClass("orange");
+        console.log("------------------------------------");
+      }
+    }
+  }, [props.results.map(e => Object.keys(e))[0]]);
+
   return (
     <div>
       {props.results != 0 ? (
         <table className="table">
           <thead>
-            <tr>
+            <tr className={selectorClass}>
               {/* forma 1  */}
               {console.log(" props.results" + props.results)}
               {props.results
