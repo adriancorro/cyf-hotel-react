@@ -7,16 +7,19 @@ const SearchResults = props => {
 que entre a la condicion si es true de lo contrario (no se puede hacer map de undefined).
 
 sin el useEffect no se puede hacer setSelectorClass porque es un loop con muchas iteracciones
-useEffect resuelve el problema useEffect "llama a esto solo cuando esto cambie."
+useEffect resuelve el problema.  con el  [] useEffect solo se ejecutará cuando el componente
+se monte, y no en cada rerenderizado
 */
   useEffect(() => {
     if (props.results.map(e => Object.keys(e))[0]) {
       if (props.results.map(e => Object.keys(e))[0].includes("vip")) {
         setSelectorClass("orange");
-        console.log("------------------------------------");
+        console.log(
+          "-------------This line of code runs only once.------------------"
+        );
       }
     }
-  }, [props.results.map(e => Object.keys(e))[0]]);
+  }, []);
 
   return (
     <div>
@@ -24,10 +27,12 @@ useEffect resuelve el problema useEffect "llama a esto solo cuando esto cambie."
         <table className="table">
           <thead>
             <tr className={selectorClass}>
+              {/* forma 1  */}
               {console.log(" props.results" + props.results)}
+              {/* .map(e => Object.keys(e))[0] Primero o ultimo: [props.results.length -1]*/}
               {props.results
-                .map(e => Object.keys(e))[0]
-                .map((e, index) => {
+                .map(e => Object.keys(e))
+                [props.results.length - 1].map((e, index) => {
                   return (
                     <th key={index} scope="col">
                       {e}
