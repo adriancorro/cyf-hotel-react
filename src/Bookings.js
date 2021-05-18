@@ -15,7 +15,16 @@ const Bookings = () => {
     console.info([valores]);
     setBookingsFetcher(
       [
-        { id: BookingsFetcher.length + 1, title: valores[0], name: valores[1] }
+        {
+          id: BookingsFetcher.length + 1,
+          title: valores[0],
+          firstName: valores[1],
+          surname: valores[2],
+          email: valores[3],
+          roomId: valores[4],
+          checkInDate: valores[5],
+          checkOutDate: valores[6]
+        }
       ].concat(BookingsFetcher)
     );
 
@@ -24,12 +33,7 @@ const Bookings = () => {
 
   const Search2 = searchVal => {
     console.info("TO DO!", searchVal);
-    console.log(
-      searchVal.charAt(0).toUpperCase() + searchVal.slice(1).toLowerCase()
-    );
-    setSearchInput(
-      searchVal.charAt(0).toUpperCase() + searchVal.slice(1).toLowerCase()
-    );
+    setSearchInput(searchVal.trim());
   };
   const urlFuntion1 = () => {
     return `https://cyf-react.glitch.me`;
@@ -131,9 +135,25 @@ const Bookings = () => {
           <SearchResults
             results={BookingsFetcher.filter(
               e =>
-                e.firstName === searchInput ||
-                e.surname === searchInput ||
-                e.title === searchInput
+                e.firstName.toLowerCase() === searchInput ||
+                e.surname.toLowerCase() === searchInput ||
+                e.title.toLowerCase() === searchInput ||
+                e.firstName.charAt(0).toUpperCase() +
+                  e.firstName.slice(1).toLowerCase() ===
+                  searchInput ||
+                e.surname.charAt(0).toUpperCase() +
+                  e.surname.slice(1).toLowerCase() ===
+                  searchInput ||
+                e.title.charAt(0).toUpperCase() +
+                  e.title.slice(1).toLowerCase() ===
+                  searchInput ||
+                e.id == searchInput ||
+                e.checkInDate === searchInput ||
+                e.checkOutDate === searchInput ||
+                e.email.toLowerCase() === searchInput ||
+                e.email.charAt(0).toUpperCase() +
+                  e.email.slice(1).toLowerCase() ===
+                  searchInput
             )}
           />
         )}

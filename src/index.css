@@ -52,6 +52,9 @@ footer {
   background-color: #ffce2f6b;
 }
 
+.col-sm input {
+  width: 221px;
+}
 .green {
   background-color: #acdaacbd;
 }
