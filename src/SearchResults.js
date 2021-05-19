@@ -58,7 +58,8 @@ se monte, y no en cada rerenderizado
                 [props.results.length - 1].map((e, index) => {
                   return (
                     <th key={index} scope="col">
-                      <Order date={props.results} ind={e} /> {e}
+                      <Order date={props.results} ind={e} />
+                      {e}
                     </th>
                   );
                 })}

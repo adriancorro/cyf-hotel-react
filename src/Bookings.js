@@ -3,7 +3,6 @@ import SearchResults from "./SearchResults.js";
 import Search from "./Search.js";
 import moment from "moment";
 import Form from "./Form.js";
-import fakeBookings from "./data/fakeBookings.json";
 
 const Bookings = () => {
   const [searchInput, setSearchInput] = useState(false);
@@ -60,9 +59,7 @@ const Bookings = () => {
         }
       })
       .then(data => {
-        !selectorProfile
-          ? setBookingsFetcher(fakeBookings)
-          : setBookingsFetcher2(data);
+        !selectorProfile ? setBookingsFetcher(data) : setBookingsFetcher2(data);
       })
       .catch(e => console.log(e));
     /*    con [] el efecto solo se ejecutará cuando el componente se monte, y no en cada rerenderizado
