@@ -51,6 +51,7 @@ const Form = props => {
   return (
     <Fragment>
       <div class="container">
+        <h2 className="display-6">Insert data here</h2>
         <form className="row" onSubmit={enviarDatos}>
           <div class="row">
             <div className="col-sm">

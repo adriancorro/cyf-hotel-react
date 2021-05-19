@@ -10,7 +10,9 @@ body {
 }
 
 footer {
-  background-color: #fffacda8;
+  background-color: hsl(0deg 0% 69% / 16%);
+  padding-top: 10px;
+  border-top: ridge;
 }
 
 .cardParent {
@@ -80,4 +82,9 @@ footer {
 
 .red {
   background-color: red;
+}
+
+footer li {
+  list-style: none;
+  font: small-caption;
 }
