@@ -19,8 +19,7 @@ const SearchResults = props => {
     return (
       <div>
         <div className="order2" onClick={Ordenar2}>
-          {" "}
-          A-Z{" "}
+          A-Z
         </div>
       </div>
     );
@@ -38,7 +37,7 @@ se monte, y no en cada rerenderizado
       if (props.results.map(e => Object.keys(e))[0].includes("vip")) {
         setSelectorClass("orange");
         console.log(
-          "-------------This line of code runs only once.------------------"
+          "-------------This line of code runs only once------------------"
         );
       }
     }
@@ -50,19 +49,28 @@ se monte, y no en cada rerenderizado
         <table className="table">
           <thead>
             <tr className={selectorClass}>
-              {/* forma 1  */}
-              {console.log(" props.results" + props.results)}
               {/* .map(e => Object.keys(e))[0] Primero o ultimo: [props.results.length -1]*/}
-              {props.results
-                .map(e => Object.keys(e))
-                [props.results.length - 1].map((e, index) => {
-                  return (
-                    <th key={index} scope="col">
-                      <Order date={props.results} ind={e} />
-                      {e}
-                    </th>
-                  );
-                })}
+              {/* Si dentro de las keys de props.results[0] está vip no quiero agregar el componente  <Order/> y si está si lo agrego.*/}
+              {props.results.map(e => Object.keys(e))[0].includes("vip")
+                ? props.results
+                    .map(e => Object.keys(e))[0]
+                    .map((e, index) => {
+                      return (
+                        <th key={index} scope="col">
+                          {e}
+                        </th>
+                      );
+                    })
+                : props.results
+                    .map(e => Object.keys(e))[0]
+                    .map((e, index) => {
+                      return (
+                        <th key={index} scope="col">
+                          <Order date={props.results} ind={e} />
+                          {e}
+                        </th>
+                      );
+                    })}
             </tr>
           </thead>
           <tbody>
@@ -93,7 +101,7 @@ const Child = ({ result2 }) => {
       {result2 != 0 ? (
         Object.values(result2).map((data, index) => <td key={index}>{data}</td>)
       ) : (
-        <span>Loading...888888888888888888</span>
+        <span>Loading.. Componente child</span>
       )}
     </tr>
   );

@@ -60,6 +60,7 @@ const Form = props => {
                 className="form-control"
                 onChange={handleInputChange}
                 name="title"
+                required
               />
             </div>
             <div className="col-sm">
@@ -69,6 +70,7 @@ const Form = props => {
                 className="form-control"
                 onChange={handleInputChange}
                 name="firstName"
+                required
               />
             </div>
             <div className="col-sm">
@@ -78,26 +80,29 @@ const Form = props => {
                 className="form-control"
                 onChange={handleInputChange}
                 name="surname"
+                required
               />
             </div>
             <div className="col-sm">
               <input
-                type="text"
+                type="email"
                 placeholder="email"
                 className="form-control"
                 onChange={handleInputChange}
                 name="email"
+                required
               />
             </div>
           </div>
           <div class="row">
             <div className="col-sm">
               <input
-                type="text"
+                type="number"
                 placeholder="room Id"
                 className="form-control"
                 onChange={handleInputChange}
                 name="roomId"
+                required
               />
             </div>
             <div className="col-sm">
@@ -107,6 +112,7 @@ const Form = props => {
                 className="form-control"
                 onChange={handleInputChange}
                 name="checkInDate"
+                required
               />
             </div>
             <div className="col-sm">
@@ -116,6 +122,7 @@ const Form = props => {
                 className="form-control"
                 onChange={handleInputChange}
                 name="checkOutDate"
+                required
               />
             </div>
             <div className="col-sm ">
