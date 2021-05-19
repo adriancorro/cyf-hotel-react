@@ -22,12 +22,12 @@ footer {
 .card .btn-primary {
   bottom: 1rem;
   position: absolute;
-  left: 2rem;
-  right: 2rem;
+  left: 4.2rem;
+  right: 4.2rem;
 }
 .card {
   display: inline-flex;
-  height: 270px;
+  height: 450px;
 }
 .search-wrapper {
   border-top: 1px solid #e9ecef;
