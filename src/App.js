@@ -2,7 +2,7 @@ import React from "react";
 import Bookings from "./Bookings";
 import Restaurant from "./Restaurant";
 import Footer from "./Footer";
-import TouristInfoCardsque from "./TouristInfoCardsque";
+import TouristInfoCards from "./TouristInfoCards";
 import Heading from "./Heading";
 import "./App.css";
 
@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div className="App">
       <Heading />
-      <TouristInfoCardsque />
+      <TouristInfoCards />
       <Bookings />
       <Restaurant />
       <Footer />

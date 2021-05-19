@@ -50,10 +50,10 @@ const Form = props => {
 
   return (
     <Fragment>
-      <div class="container">
+      <div className="container">
         <h2 className="display-6">Insert data here</h2>
         <form className="row" onSubmit={enviarDatos}>
-          <div class="row">
+          <div className="row">
             <div className="col-sm">
               <input
                 type="text"
@@ -95,7 +95,7 @@ const Form = props => {
               />
             </div>
           </div>
-          <div class="row">
+          <div className="row">
             <div className="col-sm">
               <input
                 type="number"
@@ -137,7 +137,7 @@ const Form = props => {
               />
             </div>
           </div>
-          <div class="row  col-sm-3 container mt-2 mb-2">
+          <div className="row  col-sm-3 container mt-2 mb-2">
             <button type="submit" className="btn btn-primary">
               Enviar
             </button>
