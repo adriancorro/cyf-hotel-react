@@ -3,6 +3,7 @@ import SearchResults from "./SearchResults.js";
 import Search from "./Search.js";
 import moment from "moment";
 import Form from "./Form.js";
+import fakeBookings from "./data/fakeBookings.json";
 
 const Bookings = () => {
   const [searchInput, setSearchInput] = useState(false);
@@ -45,6 +46,7 @@ const Bookings = () => {
     }
     return `https://cyf-react.glitch.me/customers/${id}`;
   };
+
   // Si no se usa useEffect en el filter no aparecera los #night
   /*   selectorProfile <= BookingsFetcher.length
    */ useEffect(() => {
@@ -58,7 +60,9 @@ const Bookings = () => {
         }
       })
       .then(data => {
-        !selectorProfile ? setBookingsFetcher(data) : setBookingsFetcher2(data);
+        !selectorProfile
+          ? setBookingsFetcher(fakeBookings)
+          : setBookingsFetcher2(data);
       })
       .catch(e => console.log(e));
     /*    con [] el efecto solo se ejecutará cuando el componente se monte, y no en cada rerenderizado
@@ -97,6 +101,7 @@ const Bookings = () => {
               a =>
                 (a.night = moment(a.checkOutDate).diff(a.checkInDate, "days"))
             )}
+
             {BookingsFetcher.forEach(
               /*   enviame como parametro al props id lo que tenga a.id del forEach */
               a => (a.info = <CustomerProfile id={a.id} />)
@@ -157,7 +162,9 @@ const Bookings = () => {
             )}
           />
         )}
+        {/* 
 
+     
         {/* 4 Renderizar componente solo cuando selectorProfile sea true  */}
         {selectorProfile && <SearchResults results={[BookingsFetcher2]} />}
       </div>

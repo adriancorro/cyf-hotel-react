@@ -2,6 +2,29 @@ import React, { useState, useEffect } from "react";
 
 const SearchResults = props => {
   const [selectorClass, setSelectorClass] = useState("white");
+  const [ab, setA] = useState([]);
+
+  const Order = ({ date, ind }) => {
+    const Ordenar2 = () => {
+      /*   setState actualiza el objeto de estado y vuelve a renderizar el componente automáticamente.
+       */ setA(ind);
+      date.sort((b, a) => (a[ind] > b[ind] ? 1 : a[ind] < b[ind] ? -1 : 0));
+
+      if (ab == ind) {
+        setA(false);
+        date.sort((a, b) => (a[ind] > b[ind] ? 1 : a[ind] < b[ind] ? -1 : 0));
+      }
+    };
+
+    return (
+      <div>
+        <div className="order2" onClick={Ordenar2}>
+          {" "}
+          A-Z{" "}
+        </div>
+      </div>
+    );
+  };
 
   /* Al renderizar props.results.map(e => Object.keys(e))[0] da undefined por lo que solo queremos
 que entre a la condicion si es true de lo contrario (no se puede hacer map de undefined).
@@ -35,7 +58,7 @@ se monte, y no en cada rerenderizado
                 [props.results.length - 1].map((e, index) => {
                   return (
                     <th key={index} scope="col">
-                      {e}
+                      <Order date={props.results} ind={e} /> {e}
                     </th>
                   );
                 })}

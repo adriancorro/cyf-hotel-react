@@ -47,6 +47,15 @@ footer {
 .search-row input {
   margin-right: 10px;
 }
+
+.order2 {
+  position: absolute;
+  top: 2;
+  margin-top: 21px;
+  margin-left: 4px;
+  font-size: 11px;
+}
+
 .orange {
   color: #332f33;
   background-color: #ffce2f6b;
