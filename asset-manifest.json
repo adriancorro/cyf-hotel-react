@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/cyf-hotel-react/static/css/main.24586c24.chunk.css",
+    "main.js": "/cyf-hotel-react/static/js/main.61c70e6d.chunk.js",
+    "main.js.map": "/cyf-hotel-react/static/js/main.61c70e6d.chunk.js.map",
+    "runtime-main.js": "/cyf-hotel-react/static/js/runtime-main.72cf73f6.js",
+    "runtime-main.js.map": "/cyf-hotel-react/static/js/runtime-main.72cf73f6.js.map",
+    "static/js/2.ae78182f.chunk.js": "/cyf-hotel-react/static/js/2.ae78182f.chunk.js",
+    "static/js/2.ae78182f.chunk.js.map": "/cyf-hotel-react/static/js/2.ae78182f.chunk.js.map",
+    "index.html": "/cyf-hotel-react/index.html",
+    "precache-manifest.b29272e00634474fe8feb41d6a52eb26.js": "/cyf-hotel-react/precache-manifest.b29272e00634474fe8feb41d6a52eb26.js",
+    "service-worker.js": "/cyf-hotel-react/service-worker.js",
+    "static/css/main.24586c24.chunk.css.map": "/cyf-hotel-react/static/css/main.24586c24.chunk.css.map",
+    "static/js/2.ae78182f.chunk.js.LICENSE.txt": "/cyf-hotel-react/static/js/2.ae78182f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.72cf73f6.js",
+    "static/js/2.ae78182f.chunk.js",
+    "static/css/main.24586c24.chunk.css",
+    "static/js/main.61c70e6d.chunk.js"
+  ]
+}
